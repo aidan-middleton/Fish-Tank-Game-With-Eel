@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scripts/Eel/EelHeadController.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Eel/EelController.gd" type="Script" id=2]
+[ext_resource path="res://Materials/default.tres" type="Material" id=3]
+
+[sub_resource type="SphereShape" id=1]
+
+[sub_resource type="SphereMesh" id=2]
+
+[sub_resource type="SphereShape" id=3]
+
+[node name="Eel" type="Spatial"]
+script = ExtResource( 2 )
+
+[node name="eel_head" type="KinematicBody" parent="."]
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="eel_head"]
+shape = SubResource( 1 )
+
+[node name="CSGMesh" type="CSGMesh" parent="eel_head"]
+mesh = SubResource( 2 )
+material = ExtResource( 3 )
+
+[node name="Area" type="Area" parent="eel_head"]
+
+[node name="CollisionShape" type="CollisionShape" parent="eel_head/Area"]
+shape = SubResource( 3 )
