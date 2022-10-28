@@ -9,16 +9,16 @@ onready var body: PackedScene = preload("res://Scenes/Eel/eel_body.tscn")
 
 var bodies: Array = []
 
+var start_length: int = 10
+
 onready var head: KinematicBody = $eel_head
 #onready var camera: Camera = $camera
 
 func _ready() -> void:
 	head.get_node("Area").connect("area_entered", self, "_on_head_area_entered")
 	
-	add_body()
-	add_body()
-	add_body()
-	add_body()
+	for i in range(start_length):
+		add_body()
 
 func add_body() -> void:
 	var body_new: KinematicBody = body.instance()
