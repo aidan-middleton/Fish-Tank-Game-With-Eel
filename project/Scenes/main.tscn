@@ -1,11 +1,22 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Scripts/freecamera.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/main.gd" type="Script" id=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+flags_transparent = true
+flags_use_shadow_to_opacity = true
+flags_unshaded = true
 
 [node name="main" type="Spatial"]
 script = ExtResource( 2 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.317038, 0.961384 )
-script = ExtResource( 1 )
+transform = Transform( 0.59989, 0.256199, -0.757954, 0, 0.947344, 0.320216, 0.800083, -0.192094, 0.568302, -28.9941, 12.4563, 22.2603 )
+projection = 1
+size = 45.0
+
+[node name="CSGBox" type="CSGBox" parent="."]
+width = 35.0
+height = 25.0
+depth = 50.0
+material = SubResource( 1 )
