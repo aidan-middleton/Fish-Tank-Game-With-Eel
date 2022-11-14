@@ -1,7 +1,7 @@
 extends KinematicBody
 
-const move_speed: float = 10.0
-const rotation_speed: float = 0.1
+const move_speed: float = 8.0
+const rotation_speed: float = 3.0
 
 onready var parent: Spatial = get_parent()
 
@@ -36,8 +36,17 @@ func _physics_process(delta: float) -> void:
 	var _pitch: float = _up as float - _down as float
 	var _yaw: float = _left as float - _right as float
 	
-	var _direction = Vector3(0,0,0) + get_transform().basis.x * _pitch + get_transform().basis.y * _yaw
-	rotate(_direction, rotation_speed)
+	#var _direction = Vector3(0,0,0) + get_transform().basis.x * _pitch + get_transform().basis.y * _yaw
+	#rotate(_direction, rotation_speed)
+	
+	transform.basis = transform.basis.rotated(transform.basis.x, _pitch * rotation_speed * delta)
+	
+	print(rotation.x)
+	
+	transform.basis = transform.basis.rotated(Vector3.UP, _yaw * rotation_speed * delta)
+	
+	if _pitch == 0:
+		rotation.x = lerp(rotation.x, 0.0, delta * rotation_speed)
 	
 #	var rot = Quat(rotation)
 #	look_at(UP_LOCATION, Vector3.UP)
