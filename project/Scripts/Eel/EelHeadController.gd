@@ -1,7 +1,8 @@
 extends KinematicBody
 
-const move_speed: float = 4.0
-const rotation_speed: float = 0.01
+
+const move_speed: float = 8.0
+const rotation_speed: float = 3.0
 
 onready var parent: Spatial = get_parent()
 
@@ -18,25 +19,36 @@ func _input(event):
 	# Receives key input
 	if event is InputEventKey:
 		match event.scancode:
-			KEY_I:
+
+			KEY_W:
 				_up = event.pressed
-			KEY_K:
+			KEY_S:
 				_down = event.pressed
-			KEY_J:
+			KEY_A:
 				_left = event.pressed
-			KEY_L:
+			KEY_D:
 				_right = event.pressed
 
 func _physics_process(delta: float) -> void:
-	var _velocity = Vector3(get_global_transform().basis.z * move_speed) 
-	translate(-get_global_transform().basis.z * move_speed * delta)
-
+	var _velocity = get_transform().basis.z * move_speed
+	#translate(-get_global_transform().basis.z * move_speed * delta)
+	
+	move_and_slide(_velocity)
 	
 	var _pitch: float = _up as float - _down as float
 	var _yaw: float = _left as float - _right as float
 	
-	var _direction = Vector3(_pitch,_yaw,0)
-	rotate(_direction, rotation_speed)
+	#var _direction = Vector3(0,0,0) + get_transform().basis.x * _pitch + get_transform().basis.y * _yaw
+	#rotate(_direction, rotation_speed)
+	
+	transform.basis = transform.basis.rotated(transform.basis.x, _pitch * rotation_speed * delta)
+	
+	print(rotation.x)
+	
+	transform.basis = transform.basis.rotated(Vector3.UP, _yaw * rotation_speed * delta)
+	
+	if _pitch == 0:
+		rotation.x = lerp(rotation.x, 0.0, delta * rotation_speed)
 	
 #	var rot = Quat(rotation)
 #	look_at(UP_LOCATION, Vector3.UP)
