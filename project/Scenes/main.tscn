@@ -3,20 +3,60 @@
 [ext_resource path="res://Scripts/main.gd" type="Script" id=2]
 
 [sub_resource type="SpatialMaterial" id=1]
-flags_transparent = true
-flags_use_shadow_to_opacity = true
-flags_unshaded = true
+metallic = 1.0
 
 [node name="main" type="Spatial"]
 script = ExtResource( 2 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 0.59989, 0.256199, -0.757954, 0, 0.947344, 0.320216, 0.800083, -0.192094, 0.568302, -28.9941, 12.4563, 22.2603 )
+transform = Transform( 0.59989, 0.256199, -0.757954, 0, 0.947345, 0.320216, 0.800083, -0.192094, 0.568302, -28.9941, 12.4563, 22.2603 )
 projection = 1
 size = 45.0
 
-[node name="CSGBox" type="CSGBox" parent="."]
+[node name="CSGCombiner" type="CSGCombiner" parent="."]
+use_collision = true
+
+[node name="CSGBox" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.4545, 0 )
 width = 35.0
 height = 25.0
 depth = 50.0
+
+[node name="CSGBox2" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.2534, 0 )
+operation = 2
+width = 33.6781
+height = 25.0
+depth = 48.8616
+
+[node name="CSGBox3" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.3308, 10.5816, 0 )
+operation = 2
+width = 1.0247
+height = 22.874
+depth = 47.4535
+material = SubResource( 1 )
+
+[node name="CSGBox4" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.123, 10.5816, 0 )
+operation = 2
+width = 1.0247
+height = 22.874
+depth = 47.4535
+material = SubResource( 1 )
+
+[node name="CSGBox5" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.133876, 10.5418, 24.704 )
+operation = 2
+width = 32.6688
+height = 22.874
+depth = 3.17065
+material = SubResource( 1 )
+
+[node name="CSGBox6" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.133876, 10.5418, -24.4629 )
+operation = 2
+width = 32.6688
+height = 22.874
+depth = 3.17065
 material = SubResource( 1 )
