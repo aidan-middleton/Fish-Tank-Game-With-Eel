@@ -1,5 +1,6 @@
 extends KinematicBody
 
+
 const move_speed: float = 8.0
 const rotation_speed: float = 3.0
 
@@ -18,6 +19,7 @@ func _input(event):
 	# Receives key input
 	if event is InputEventKey:
 		match event.scancode:
+
 			KEY_W:
 				_up = event.pressed
 			KEY_S:
