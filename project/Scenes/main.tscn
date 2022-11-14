@@ -1,15 +1,22 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
+[ext_resource path="res://Scenes/idk.tres" type="Material" id=1]
 [ext_resource path="res://Scripts/main.gd" type="Script" id=2]
 
-[sub_resource type="SpatialMaterial" id=1]
-metallic = 1.0
+[sub_resource type="BoxShape" id=1]
 
 [node name="main" type="Spatial"]
 script = ExtResource( 2 )
 
+[node name="Left Flass2" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23.5537, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Left Flass2"]
+transform = Transform( 17.0863, 0, 0, 0, 0.455864, 0, 0, 0, 24.638, -0.0746307, -0.678909, 0.0602188 )
+shape = SubResource( 1 )
+
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 0.59989, 0.256199, -0.757954, 0, 0.947345, 0.320216, 0.800083, -0.192094, 0.568302, -28.9941, 12.4563, 22.2603 )
+transform = Transform( 0.59989, 0.256199, -0.757954, 0, 0.947345, 0.320216, 0.800083, -0.192094, 0.568302, -28.9941, 24.0462, 22.2603 )
 projection = 1
 size = 45.0
 
@@ -35,7 +42,7 @@ operation = 2
 width = 1.0247
 height = 22.874
 depth = 47.4535
-material = SubResource( 1 )
+material = ExtResource( 1 )
 
 [node name="CSGBox4" type="CSGBox" parent="CSGCombiner"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.123, 10.5816, 0 )
@@ -43,7 +50,7 @@ operation = 2
 width = 1.0247
 height = 22.874
 depth = 47.4535
-material = SubResource( 1 )
+material = ExtResource( 1 )
 
 [node name="CSGBox5" type="CSGBox" parent="CSGCombiner"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.133876, 10.5418, 24.704 )
@@ -51,12 +58,40 @@ operation = 2
 width = 32.6688
 height = 22.874
 depth = 3.17065
-material = SubResource( 1 )
+material = ExtResource( 1 )
 
 [node name="CSGBox6" type="CSGBox" parent="CSGCombiner"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.133876, 10.5418, -24.4629 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0483387, 10.5838, -24.4908 )
 operation = 2
 width = 32.6688
 height = 22.874
 depth = 3.17065
-material = SubResource( 1 )
+material = ExtResource( 1 )
+
+[node name="Front Glass" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.123, 10.582, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Front Glass"]
+transform = Transform( 1.025, 0, 0, 0, 11.437, 0, 0, 0, 23.727, -0.0746307, 0, 0.0602188 )
+shape = SubResource( 1 )
+
+[node name="Back Glass" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.123, 10.582, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Back Glass"]
+transform = Transform( 1.025, 0, 0, 0, 11.437, 0, 0, 0, 23.727, -0.0746307, 0, 0.0602188 )
+shape = SubResource( 1 )
+
+[node name="Right Glass" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.134, 10.542, 24.704 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Right Glass"]
+transform = Transform( 16.334, 0, 0, 0, 11.437, 0, 0, 0, 1.585, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="Left Flass" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0483387, 10.5838, -24.4908 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Left Flass"]
+transform = Transform( 16.334, 0, 0, 0, 11.437, 0, 0, 0, 1.585, -0.0746307, 0, 0.0602188 )
+shape = SubResource( 1 )
