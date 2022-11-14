@@ -40,7 +40,7 @@ shape = SubResource( 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23.5537, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Lid"]
-transform = Transform( 17.0863, 0, 0, 0, 0.455864, 0, 0, 0, 24.638, -0.0746307, -0.678909, 0.0602188 )
+transform = Transform( 17.0863, 0, 0, 0, 0.848157, 0, 0, 0, 24.638, -0.0746307, -0.731621, 0.0602188 )
 shape = SubResource( 2 )
 
 [node name="CSGCombiner" type="CSGCombiner" parent="."]
