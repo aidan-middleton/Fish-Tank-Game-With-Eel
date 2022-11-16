@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Reference",
+"class": "LSystem",
+"language": "GDScript",
+"path": "res://Scripts/l_system.gd"
+} ]
+_global_script_class_icons={
+"LSystem": ""
+}
+
 [application]
 
 config/name="Fish-Tank-Game-With-Eel"

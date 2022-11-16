@@ -43,8 +43,6 @@ func _physics_process(delta: float) -> void:
 	
 	transform.basis = transform.basis.rotated(transform.basis.x, _pitch * rotation_speed * delta)
 	
-	print(rotation.x)
-	
 	transform.basis = transform.basis.rotated(Vector3.UP, _yaw * rotation_speed * delta)
 	
 	if _pitch == 0:
