@@ -9,6 +9,3 @@ albedo_color = Color( 0.054902, 1, 0, 1 )
 material_override = SubResource( 1 )
 script = ExtResource( 1 )
 iterations = 5
-
-[node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.17341, 11.6535 )
