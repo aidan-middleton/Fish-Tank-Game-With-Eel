@@ -9,7 +9,7 @@ onready var body: PackedScene = preload("res://Scenes/Eel/eel_body.tscn")
 
 var bodies: Array = []
 
-var start_length: int = 10
+var start_length: int = 15
 
 onready var head: KinematicBody = $eel_head
 #onready var camera: Camera = $camera

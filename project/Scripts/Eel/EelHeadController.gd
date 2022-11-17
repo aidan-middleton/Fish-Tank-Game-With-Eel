@@ -35,7 +35,7 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide(_velocity)
 	
-	var _pitch: float = _up as float - _down as float
+	var _pitch: float = _down as float - _up as float
 	var _yaw: float = _left as float - _right as float
 	
 	#var _direction = Vector3(0,0,0) + get_transform().basis.x * _pitch + get_transform().basis.y * _yaw
@@ -43,15 +43,10 @@ func _physics_process(delta: float) -> void:
 	
 	transform.basis = transform.basis.rotated(transform.basis.x, _pitch * rotation_speed * delta)
 	
-	print(rotation.x)
+	print(rotation.x, rotation.y, rotation.z)
 	
 	transform.basis = transform.basis.rotated(Vector3.UP, _yaw * rotation_speed * delta)
 	
 	if _pitch == 0:
 		rotation.x = lerp(rotation.x, 0.0, delta * rotation_speed)
-	
-#	var rot = Quat(rotation)
-#	look_at(UP_LOCATION, Vector3.UP)
-#	var target_rot = Quat(rotation)
-#	rotation = rotation.slerp(target_rot, rotation_speed)
-#	transform.basis = Basis(rotation)
+		rotation.z = lerp(rotation.z, 0.0, delta * rotation_speed)

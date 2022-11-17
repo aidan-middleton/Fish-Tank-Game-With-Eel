@@ -23,12 +23,12 @@ script = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="EyeR" type="CSGMesh" parent="eel_head"]
-transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.35, 0.647, 0.672 )
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.4, 0.6, 0.6 )
 mesh = SubResource( 2 )
 material = ExtResource( 4 )
 
 [node name="EyeL" type="CSGMesh" parent="eel_head"]
-transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.442131, 0.646536, 0.697725 )
+transform = Transform( 0.199844, 0, 0, 0, 0.199844, 0, 0, 0, 0.199844, 0.4, 0.6, 0.6 )
 mesh = SubResource( 2 )
 material = ExtResource( 5 )
 
