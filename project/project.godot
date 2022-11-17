@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Reference",
 "class": "LSystem",
 "language": "GDScript",
-"path": "res://Scripts/l_system.gd"
+"path": "res://Scripts/plants/l_system.gd"
 } ]
 _global_script_class_icons={
 "LSystem": ""

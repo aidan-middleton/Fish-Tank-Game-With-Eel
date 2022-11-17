@@ -47,9 +47,3 @@ func _physics_process(delta: float) -> void:
 	
 	if _pitch == 0:
 		rotation.x = lerp(rotation.x, 0.0, delta * rotation_speed)
-	
-#	var rot = Quat(rotation)
-#	look_at(UP_LOCATION, Vector3.UP)
-#	var target_rot = Quat(rotation)
-#	rotation = rotation.slerp(target_rot, rotation_speed)
-#	transform.basis = Basis(rotation)
