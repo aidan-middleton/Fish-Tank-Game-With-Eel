@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Materials/tank.tres" type="Material" id=1]
+[ext_resource path="res://Materials/glass.tres" type="Material" id=2]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -8,8 +9,15 @@
 
 [node name="Tank" type="Spatial"]
 
+[node name="Glass" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.4545, 0 )
+width = 34.0
+height = 24.0
+depth = 49.0
+material = ExtResource( 2 )
+
 [node name="Front Glass" type="StaticBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.123, 10.582, 0 )
+transform = Transform( 1.03978, 0, 0, 0, 1.03978, 0, 0, 0, 1.03978, -17.123, 10.582, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Front Glass"]
 transform = Transform( 1.025, 0, 0, 0, 11.437, 0, 0, 0, 23.727, -0.0746307, 0, 0.0602188 )
