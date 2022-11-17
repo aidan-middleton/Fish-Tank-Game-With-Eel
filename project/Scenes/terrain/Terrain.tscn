@@ -2,5 +2,5 @@
 
 [ext_resource path="res://Scripts/terrain/terrain.gd" type="Script" id=1]
 
-[node name="Terrain" type="Spatial"]
+[node name="Terrain" type="MeshInstance"]
 script = ExtResource( 1 )

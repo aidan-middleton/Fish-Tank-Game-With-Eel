@@ -14,7 +14,7 @@ func _ready():
 	
 	var plane_mesh = PlaneMesh.new()
 	plane_mesh.size = Vector2(35,50)
-	plane_mesh.subdivide_depth = 300
+	plane_mesh.subdivide_depth = 400
 	plane_mesh.subdivide_width = 300
 	
 	var surface_tool = SurfaceTool.new()
@@ -28,7 +28,7 @@ func _ready():
 	
 	for i in range(data_tool.get_vertex_count()):
 		var vertex = data_tool.get_vertex(i)
-		vertex.y = noise.get_noise_3d(vertex.x, vertex.y, vertex.z) * 60
+		vertex.y = noise.get_noise_3d(vertex.x, vertex.y, vertex.z) * 30
 		
 		data_tool.set_vertex(i, vertex)
 		

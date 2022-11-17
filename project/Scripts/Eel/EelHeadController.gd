@@ -43,12 +43,15 @@ func _physics_process(delta: float) -> void:
 	
 	transform.basis = transform.basis.rotated(transform.basis.x, _pitch * rotation_speed * delta)
 	
-	print(rotation.x, rotation.y, rotation.z)
-	
-
 	transform.basis = transform.basis.rotated(Vector3.UP, _yaw * rotation_speed * delta)
 	
 	if _pitch == 0:
 		rotation.x = lerp(rotation.x, 0.0, delta * rotation_speed)
 		rotation.z = lerp(rotation.z, 0.0, delta * rotation_speed)
-
+	
+	for i in get_slide_count():
+		var collision = get_slide_collision(i)
+		if "Fish" in collision.collider.name:
+			get_parent().eat()
+			collision.collider.kill()
+		break
