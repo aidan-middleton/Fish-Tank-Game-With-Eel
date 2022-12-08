@@ -9,7 +9,7 @@ func _physics_process(delta: float) -> void:
 	
 	#var _direction = Vector3(0,0,0) + get_transform().basis.x * _pitch + get_transform().basis.y * _yaw
 	#rotate(_direction, rotation_speed)
-	transform.basis = transform.basis.rotated(transform.basis.x, rand_range(-2, 2) *delta)
+	transform.basis = transform.basis.rotated(transform.basis.x.normalized(), rand_range(-2, 2) *delta)
 	transform.basis = transform.basis.rotated(Vector3.UP, rand_range(-3, 3) * delta)
 	
 	for i in get_slide_count():

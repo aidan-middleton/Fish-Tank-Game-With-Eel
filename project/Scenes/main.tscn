@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/terrain/Tank.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/main.gd" type="Script" id=2]
@@ -53,6 +53,8 @@ shader_param/uv1_offset = Vector3( 0, 0, 0 )
 shader_param/uv2_scale = Vector3( 1, 1, 1 )
 shader_param/uv2_offset = Vector3( 0, 0, 0 )
 
+[sub_resource type="ArrayMesh" id=3]
+
 [node name="main" type="Spatial"]
 script = ExtResource( 2 )
 
@@ -81,23 +83,8 @@ height = 3.612
 depth = 12.9391
 material = SubResource( 2 )
 
-[node name="Plants" type="Spatial" parent="."]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
-
-[node name="Kelp" parent="Plants" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1145, 0, 7.87944 )
-
-[node name="Kelp2" parent="Plants" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5502, 0, 13.3565 )
-
-[node name="Kelp3" parent="Plants" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.8201, 0, -9.97164 )
-
-[node name="Kelp4" parent="Plants" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2982, 0, 6.79565 )
-
-[node name="Kelp5" parent="Plants" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6929, 0, -7.82019 )
+[node name="CSGMesh" type="CSGMesh" parent="Wall"]
+mesh = SubResource( 3 )
 
 [node name="Fish" parent="." instance=ExtResource( 6 )]
 transform = Transform( 0.25, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 6.11524, -12.1327 )
@@ -113,3 +100,73 @@ transform = Transform( -0.024348, 0, 0.995246, 0, 0.5, 0, -0.248812, 0, -0.09739
 
 [node name="Fish5" parent="." instance=ExtResource( 6 )]
 transform = Transform( 0.198781, 0.0526249, 0.597246, -0.131551, 0.304658, 0.593165, -0.0753702, -0.392956, 0.539863, -12.9323, 6.11524, -17.7424 )
+
+[node name="Plants" type="Spatial" parent="."]
+
+[node name="Row1" type="Spatial" parent="Plants"]
+
+[node name="Kelp" parent="Plants/Row1" instance=ExtResource( 3 )]
+
+[node name="Kelp2" parent="Plants/Row1" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4 )
+
+[node name="Kelp3" parent="Plants/Row1" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8 )
+
+[node name="Kelp4" parent="Plants/Row1" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12 )
+
+[node name="Kelp5" parent="Plants/Row1" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4 )
+
+[node name="Kelp6" parent="Plants/Row1" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8 )
+
+[node name="Kelp7" parent="Plants/Row1" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12 )
+
+[node name="Row2" type="Spatial" parent="Plants"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0 )
+
+[node name="Kelp" parent="Plants/Row2" instance=ExtResource( 3 )]
+
+[node name="Kelp2" parent="Plants/Row2" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4 )
+
+[node name="Kelp3" parent="Plants/Row2" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8 )
+
+[node name="Kelp4" parent="Plants/Row2" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12 )
+
+[node name="Kelp5" parent="Plants/Row2" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4 )
+
+[node name="Kelp6" parent="Plants/Row2" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8 )
+
+[node name="Kelp7" parent="Plants/Row2" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12 )
+
+[node name="Row3" type="Spatial" parent="Plants"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0 )
+
+[node name="Kelp" parent="Plants/Row3" instance=ExtResource( 3 )]
+
+[node name="Kelp2" parent="Plants/Row3" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4 )
+
+[node name="Kelp3" parent="Plants/Row3" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8 )
+
+[node name="Kelp4" parent="Plants/Row3" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12 )
+
+[node name="Kelp5" parent="Plants/Row3" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4 )
+
+[node name="Kelp6" parent="Plants/Row3" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8 )
+
+[node name="Kelp7" parent="Plants/Row3" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12 )

@@ -27,9 +27,11 @@ func gen_string(iterations, grammar):
 func turtle(start_position, length, grammar, sentence, angle):
 	begin(Mesh.PRIMITIVE_LINES)
 	var from = start_position
-	var s : Spatial = Spatial.new()
+	print(start_position)
+
 	var direction : Vector3 = Vector3(0,1,0)
 	var queue = []
+	
 	for index in sentence:
 		match grammar.get_action(index):
 			"draw_forward":
@@ -60,6 +62,7 @@ func turtle(start_position, length, grammar, sentence, angle):
 	end()
 
 func _process(delta):
-	var camera_pos = get_viewport().get_camera().global_transform.origin
-	camera_pos.y = 0
-	look_at(camera_pos, Vector3(0, 1, 0))
+	#var camera_pos = get_viewport().get_camera().global_transform.origin
+	#camera_pos.y = 0
+	#look_at(camera_pos, Vector3(0, 1, 0))
+	pass

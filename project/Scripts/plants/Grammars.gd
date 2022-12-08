@@ -58,3 +58,11 @@ class SeaWeed extends Grammar:
 		self.rules = {
 			"F" : "FF-[&F^F^F]+[^F&F&F]>[^F^F&F]",
 		}
+		
+class Simple extends Grammar:
+	func _init():
+		self.axiom = "F"
+		self.angle = 25
+		self.rules = {
+			"F" : "FF",
+		}
