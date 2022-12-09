@@ -8,7 +8,7 @@ export var iterations : int = 4
 func _ready(): 
 	var start_position = global_transform.origin
 	length *= length * pow(0.7, iterations)
-	var grammar = Grammars.Kelp.new()
+	var grammar = Grammars.Fern.new()
 	var angle = grammar.get_angle()
 	var sentence = gen_string(iterations, grammar)
 	turtle(start_position, length, grammar, sentence, angle)

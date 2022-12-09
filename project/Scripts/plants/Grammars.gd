@@ -42,27 +42,3 @@ class Fern extends Grammar:
 			"X" : "F+[[X]-X]-F[-FX]+X",
 			"F" : "FF"
 		}
-
-class Kelp extends Grammar:
-	func _init():
-		self.axiom = "^^X"
-		self.angle = 22
-		self.rules = {
-			"F" : "FF",
-			"X" : "F+[[X]-X]-F[-FX]+X",
-		}
-class SeaWeed extends Grammar:
-	func _init():
-		self.axiom = "F"
-		self.angle = 22
-		self.rules = {
-			"F" : "FF-[&F^F^F]+[^F&F&F]>[^F^F&F]",
-		}
-		
-class Simple extends Grammar:
-	func _init():
-		self.axiom = "F"
-		self.angle = 25
-		self.rules = {
-			"F" : "FF",
-		}
