@@ -13,7 +13,7 @@ For this project, we used the Godot game engine (v 3.5). The engine is coded in 
 ![Screenshot](SC_Movement-2.png)
 ## Scene Setup
 <p align="center">
-![Screenshot](SC_scene-setup.png)
+<img src="/SC_scene-setup.png" width="350" title="hover text">
 </p>
 This is general overview of what the game looks like. The scene consists of several basic elements:
   - The frame of the fishtank
