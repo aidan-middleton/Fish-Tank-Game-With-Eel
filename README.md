@@ -3,14 +3,24 @@
 
 ## Godot Engine
 
-![Screenshot](SC_godot-icon.png)
+<p align="center">
+  <img src="/SC_godot-icon.png" width="350" title="hover text">
+</p>
 
 For this project, we used the Godot game engine (v 3.5). The engine is coded in C++ and can be scripted in with the custom GDscript language. This project uses GDscript for all its scripting. Also, the engine is distributed under the MIT license. Our team decided to go with this engine because of the simplicity it’s node based system and GDscript, the incredibly extensive and beginner friendly documentation, the uniqueness of the engine, and its free and open source philosophy.
 
 # Design and Implementation
 ## Eel and Movement Controls
-![Screenshot](SC_Movement-1.png)
-![Screenshot](SC_Movement-2.png)
+
+<p align="center">
+  <img src="/SC_Movement-1.png" width="350" title="hover text">
+</p>
+
+<p align="center">
+  <img src="/SC_Movement-2.png" width="350" title="hover text">
+</p>
+
+
 ## Scene Setup
 
 <p align="center">
@@ -29,9 +39,16 @@ This is general overview of what the game looks like. The scene consists of seve
 The Godot game engine uses a node based scene hierarchy. There are several different types of nodes. Different nodes may have different behaviors. To create the visual arrangement of this scene and the interactions between the different objects, we make use of Godot's scene heiarchy.
 ## Terrain Generation
 ## Fish
-![Screenshot](SC_fish.png)
+
+<p align="center">
+  <img src="/SC_fish.png" width="350" title="hover text">
+</p>
+
 ## Plant Generation
-![Screenshot](SC_plant-setup.png)
+
+<p align="center">
+  <img src="/SC_plant-setup.png" width="350" title="hover text">
+</p>
 
 # Lessons Learnt
 
