@@ -9,10 +9,15 @@ For this project, we used the Godot game engine (v 3.5). The engine is coded in 
 
 # Design and Implementation
 ## Eel and Movement Controls
+![Screenshot](SC_Movement-1.png)
+![Screenshot](SC_Movement-2.png)
 ## Scene Setup
+![Screenshot](SC_scene-setup.png)
 ## Terrain Generation
 ## Fish
+![Screenshot](SC_fish.png)
 ## Plant Generation
+![Screenshot](SC_plant-setup.png)
 
 # Lessons Learnt
 
