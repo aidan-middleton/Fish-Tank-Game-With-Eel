@@ -13,6 +13,16 @@ For this project, we used the Godot game engine (v 3.5). The engine is coded in 
 ![Screenshot](SC_Movement-2.png)
 ## Scene Setup
 ![Screenshot](SC_scene-setup.png)
+This is general overview of what the game looks like. The scene consists of several basic elements:
+  - The frame of the fishtank
+  - The glass on the fishtank
+  - The terrain at the base of the fishtank
+  - the fish swimming inside the fishtank
+  - The plants growing out of the terrain
+  - The table the fishtank sits on
+  - The walls that form the background around the fishtank and table
+  - The Eel
+The Godot game engine uses a node based scene hierarchy. There are several different types of nodes. Different nodes may have different behaviors. To create the visual arrangement of this scene and the interactions between the different objects, we make use of Godot's scene heiarchy.
 ## Terrain Generation
 ## Fish
 ![Screenshot](SC_fish.png)
