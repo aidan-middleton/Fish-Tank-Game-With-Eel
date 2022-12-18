@@ -16,9 +16,19 @@ For this project, we used the Godot game engine (v 3.5). The engine is coded in 
   <img src="/SC_Movement-1.png" width="350" title="hover text">
 </p>
 
+This is the Eel. The player controls the eel in order to swallow fish. At the technical level, the eel uses spheres that are in an array, parented to a “head” sphere that serves as the main controller of the eel, and all other body segments follow it. 
+
+Every segment has collisions, but the collision scheme was actually quite a strange problem we encountered. If we gave every segment collision with the rest of the scene, the segments would collide with each other and accelerate the head, but if it only has scene collision to the head, the player could pass through other body segments which felt wrong in testing. The solution was that each segment only can collide with the head, while the head’s collision is global to the whole scene.
+
 <p align="center">
   <img src="/SC_Movement-2.png" width="350" title="hover text">
 </p>
+
+The eel has a fixed space to move around inside the tank. It will constantly propel itself forward and the player can control the direction it goes. We implemented a 3 axis movement system that allows the player to move the eel to anywhere inside the tank in order to reach the fish. 
+
+There were 2 objectives that we had in mind when designing the movement control scheme. The first was that it needed to be intuitive to use the controls to reach a visualized point in the 3d space. This is harder than it seems, since our camera is fixed to a specific point, and thus care needed to be had in order to not have the intuitive control actually end up moving the snake in the wrong direction. The second objective kind of stems from the first - we wanted to have the controls be consistent, and not susceptible to problems such as gimbal lock, where the keys pressed might do something different depending on the direction the eel was facing and its internal rotation matrix.
+
+The solution was essentially to have 2 dimensions use a 2d movement that is fairly standard, and the third dimension would move that 2d plan up or down. Essentially if you do not press W or S (and are not colliding with the floor), the snake will always be parallel to the floor of the tank. W and S will make the snake move up or down respectively, and upon release it will reset its rotation to be parallel once again. This addresses both objectives; the snake resets its rotation to a plane which is not susceptible to gimbal lock, and upon testing the controls felt intuitive. Our previous attempts at movement relied on pitch, yaw, and roll which required 6 buttons, felt very unintuitive, and are very unpredictable, so our final control scheme is much better.
 
 
 ## Scene Setup
@@ -38,11 +48,16 @@ This is general overview of what the game looks like. The scene consists of seve
 * The Eel
 The Godot game engine uses a node based scene hierarchy. There are several different types of nodes. Different nodes may have different behaviors. To create the visual arrangement of this scene and the interactions between the different objects, we make use of Godot's scene heiarchy.
 ## Terrain Generation
+
+The terrain uses a function called opensimplex noise. Opensimplex noise is a way to make gradient noise. One can think of gradient noise as a way to make randomness. The results of the randomness can be mapped to things such as shape parameters, thus making it a great way to generate a random terrain. The opensimplex noise function provides different parameters that can be altered to restrict the randomness into specific qualities. The 2 main parameters that were altered were the period and octave parameters. The period parameter alters the change in a given area; basically the lower the period, the more change per area (super mountainy). The octaves parameter changes the resolution of the noise, thus higher octaves will increase the resolution. Once the noise is created, vertices of triangles were mapped to the noise to create the terrain.
+
 ## Fish
 
 <p align="center">
   <img src="/SC_fish.png" width="350" title="hover text">
 </p>
+
+The fish consist of a simple script to rock the fish back and forth to create the illusion of swimming. Furthermore, the finish have a simple AI. This AI will move the fish forward through the tank. If the AI detects a collision, it will change the direction of the fish. These effects combined create the illusion of a simple fish.
 
 ## Plant Generation
 
@@ -50,6 +65,19 @@ The Godot game engine uses a node based scene hierarchy. There are several diffe
   <img src="/SC_plant-setup.png" width="350" title="hover text">
 </p>
 
+The plants were generated using l-system grammar. Foremost, the implementation of this started with a grammar class. Every different plant/grammar inheritance from this class. Every grammar has a unique axiom, angle, and rules. Every grammar has the same set of actions as defined in the actions dictionary. The grammar used for the plants in the fish tank was the “Fern” grammar as pictured. The grammar class is fed into a generator script that actually generates the plant from the parameters defined by the grammar.
+
+The generator implements the “Immediate Geometry” node meaning this script communicates with this node type taking advantage of its procedural geometry features to display the plants to the user. Firstly, the script uses the “gen_string” function to iteratively, generation by generation, generate the final string for the turtle to eventually read. Next, The turtle function reads through the string. Each character has an associated action in the function. The turtle function starts by telling the mesh it’s beginning. As the turtle continues the run, it continuously lines to the mesh.
+
+
 # Lessons Learnt
 
-# Possible Future Improvements
+Majority of us had no experience with Godot or the tools it provides. Thankfully it is an easier game engine to learn, but it took a lot of time for us to learn its full potential. Similarly, it took a lot of effort to maintain a proactive environment for team progress. Working as a group takes a lot of communication, and as the semester went on and got much more challenging for us all, it was a real learning experience figuring out how to manage a proper schedule. We also learned various computer graphic techniques to implement for the development of the project.
+
+## Possible Future Improvements
+
+* The plants in the project are only generated on a 2D plane. The turtle already has the capability of drawing a 3D plant; however, the plant grammar itself does not make use of the 3D symbols. This portion of the project could be improved by creating a grammar which makes use of this feature.
+* The fish are currently very simple. Further improvements could involve more realistic movement, flocking, and defense against the snake like being wary of getting eaten. As well, a better look for the fish would also be a strong improvement.
+* The terrain is not the best looking, all it looks like is a sandy dune ground. Making the ground have pebbles that could possibly even react with the eel would be cool.
+* he scenery is rather barebones, and perhaps more work could be done to make the environment feel lore immersive (better lighting, sound, more shapes on the wall, etc)
+
